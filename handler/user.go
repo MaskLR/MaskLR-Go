@@ -22,7 +22,7 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = main.DB.Exec("INSERT INTO users (username, password) VALUES (?, ?)", user.Username, user.Password)
+	_, err = common.DB.Exec("INSERT INTO users (username, password) VALUES (?, ?)", user.Username, user.Password)
 	if err != nil {
 		http.Error(w, "注册失败", http.StatusInternalServerError)
 		return
@@ -44,7 +44,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	row := main.DB.QueryRow("SELECT id FROM users WHERE username = ? AND password = ?", user.Username, user.Password)
+	row := common.DB.QueryRow("SELECT id FROM users WHERE username = ? AND password = ?", user.Username, user.Password)
 	if err := row.Scan(&user.ID); err != nil {
 		http.Error(w, "用户名或密码错误", http.StatusUnauthorized)
 		return
