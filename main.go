@@ -3,7 +3,7 @@ package main
 import (
     "log"
     "net/http"
-    "github.com/yourname/MaskLR-Go/internal"
+    "github.com/MaskLR/MaskLR-Go/internal"
 )
 
 func main() {

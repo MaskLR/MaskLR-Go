@@ -3,7 +3,7 @@ package internal
 import (
     "fmt"
     "net/http"
-    "github.com/yourname/MaskLR-Go/internal"
+    "github.com/MaskLR/MaskLR-Go/internal"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
