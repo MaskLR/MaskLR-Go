@@ -8,6 +8,6 @@ import (
 
 func main() {
     http.HandleFunc("/", internal.IndexHandler)
-    log.Println("MaskLR-Go 启动于 http://127.0.0.1:8088")
-    log.Fatal(http.ListenAndServe("127.0.0.1:8088", nil))
+    log.Println("MaskLR-Go 启动于 http://127.0.0.1:8080")
+    log.Fatal(http.ListenAndServe("127.0.0.1:8080", nil))
 }

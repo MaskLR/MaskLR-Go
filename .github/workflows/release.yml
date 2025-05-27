@@ -27,6 +27,8 @@ jobs:
     - name: Upload binary to GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: build/masklr-linux-armv7
+        files: |
+          build/masklr-linux-armv7
+          build/masklr-linux-armv7-debug
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
