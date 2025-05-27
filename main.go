@@ -1,22 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
-
-	"github.com/MaskLR/MaskLR-Go/handler"
-	"github.com/MaskLR/MaskLR-Go/common"
+    "log"
+    "net/http"
+    "github.com/yourname/MaskLR-Go/internal"
 )
 
 func main() {
-	if err := common.InitDB(); err != nil {
-		log.Fatal("数据库初始化失败:", err)
-	}
-
-	http.HandleFunc("/register", handler.RegisterHandler)
-	http.HandleFunc("/login", handler.LoginHandler)
-
-	fmt.Println("服务启动端口:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+    http.HandleFunc("/", internal.IndexHandler)
+    log.Println("MaskLR-Go 启动于 http://127.0.0.1:8088")
+    log.Fatal(http.ListenAndServe("127.0.0.1:8088", nil))
 }
