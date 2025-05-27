@@ -16,7 +16,10 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version: '1.24'
+        go-version: '1.22'
+
+    - name: Download Go dependencies and generate go.sum
+      run: go mod tidy
 
     - name: Build ARMv7 binary with Makefile
       run: make build
