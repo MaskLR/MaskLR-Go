@@ -1,4 +1,4 @@
-module MaskLR-go
+module github.com/MaskLR/MaskLR-Go
 
 go 1.24
 
