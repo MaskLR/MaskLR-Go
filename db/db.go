@@ -6,7 +6,7 @@ import (
 )
 
 func TestDB() string {
-    dsn := "admin:admin2025@tcp(127.0.0.1:3306)/masklr_go?charset=utf8mb4&parseTime=True&loc=Local"
+    dsn := "admin:admin2025@tcp(127.0.0.1:3306)/mask_lr?charset=utf8mb4&parseTime=True&loc=Local"
     db, err := sql.Open("mysql", dsn)
     if err != nil {
         return "数据库连接失败: " + err.Error()
