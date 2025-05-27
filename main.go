@@ -5,13 +5,13 @@ import (
 	"log"
 	"net/http"
 
-	"./handler"
+	"github.com/MaskLR/MaskLR-Go/handler"
 )
 
 func main() {
 	http.HandleFunc("/register", handler.RegisterHandler)
 	http.HandleFunc("/login", handler.LoginHandler)
 
-	fmt.Println("Server started at :8080")
+	fmt.Println("服务启动端口:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
