@@ -28,7 +28,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          build/masklr-linux-armv7
-          build/masklr-linux-armv7-debug
+          build/MaskLR-Go-linux-armv7
+          build/MaskLR-Go-linux-armv7-debug
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
