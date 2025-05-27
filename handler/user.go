@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/MaskLR/MaskLR-Go/model"
+	"github.com/MaskLR/MaskLR-Go/common"
 )
 
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
