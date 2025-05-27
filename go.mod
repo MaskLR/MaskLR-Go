@@ -1,4 +1,4 @@
-module go-web-app
+module MaskLR-go
 
 go 1.24
 
