@@ -31,6 +31,9 @@ jobs:
       - name: Install Make
         run: sudo apt-get update && sudo apt-get install -y make
 
+      - name: Run go mod tidy to generate go.sum
+        run: go mod tidy
+
       - name: Build with Makefile (Termux ARMv7)
         run: make build-armv7 VERSION=${{ github.ref_name }}
 
