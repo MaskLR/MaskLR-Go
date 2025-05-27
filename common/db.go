@@ -9,7 +9,7 @@ import (
 
 var DB *sql.DB
 
-func init() {
+func InitDB() {
 	var err error
 	dsn := "admin:admin2025@tcp(127.0.0.1:3306)/mask_lr?charset=utf8mb4&parseTime=True&loc=Local"
 	DB, err = sql.Open("mysql", dsn)
