@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/MaskLR/MaskLR-Go/model"
 	"github.com/MaskLR/MaskLR-Go/common"
+	"github.com/MaskLR/MaskLR-Go/model"
 )
 
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
