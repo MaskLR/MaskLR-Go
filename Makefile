@@ -1,5 +1,5 @@
 APP_NAME := MaskLR-Go
-SRC := main.go
+SRC := cmd/main.go
 BUILD_DIR := build
 OUTPUT := $(BUILD_DIR)/$(APP_NAME)-linux-armv7
 
