@@ -14,8 +14,8 @@ import (
 var DB *sql.DB
 
 func InitDB(cfg config.Config) error {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=True&charset=utf8mb4",
-		cfg.DBUser, cfg.DBPass, cfg.DBHost, cfg.DBPort, cfg.DBName)
+	dsn := fmt.Sprintf("%s:%s@unix(%s)/%s?parseTime=True&charset=utf8mb4",
+		cfg.DBUser, cfg.DBPass, cfg.DBSocket, cfg.DBName)
 
 	var err error
 	DB, err = sql.Open("mysql",dsn)

@@ -12,4 +12,5 @@ func InitLogger() {
 		return
 	}
 	log.SetOutput(logFile)
+	log.SetFlags(log.LstdFlags)
 }

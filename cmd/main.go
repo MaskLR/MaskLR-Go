@@ -31,12 +31,4 @@ func main() {
 	log.Println("服务器启动于端口:", cfg.AppPort)
 	log.Fatal(http.ListenAndServe(":"+cfg.AppPort, r))
 
-    // 监听输入 exit 退出
-    scanner := bufio.NewScanner(os.Stdin)
-    for scanner.Scan() {
-        if strings.TrimSpace(scanner.Text()) == "exit" {
-            log.Println("收到 exit 指令，程序退出。")
-            os.Exit(0)
-        }
-    }
 }
