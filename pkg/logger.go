@@ -7,7 +7,8 @@ import (
 )
 
 func InitLogger() {
-	// 强制设置本地时区为操作系统时区
+	// 强制东八区
+	_ = os.Setenv("TZ", "Asia/Shanghai")
 	loc, err := time.LoadLocation("Local")
 	if err == nil {
 		time.Local = loc
@@ -19,5 +20,4 @@ func InitLogger() {
 		return
 	}
 	log.SetOutput(logFile)
-	log.SetFlags(log.LstdFlags)
 }
