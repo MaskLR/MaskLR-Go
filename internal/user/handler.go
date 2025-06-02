@@ -1,7 +1,6 @@
 package user
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -23,7 +22,6 @@ func RegisterHandler(c *gin.Context) {
 	ip := c.ClientIP()
 	user, err := RegisterUser(req.Nickname, req.Password, req.Email, ip)
 	if err != nil {
-		log.Printf("注册失败: %v\n", err) // ← 打印详细错误
 		if err == ErrUserExists {
 			c.JSON(http.StatusConflict, gin.H{"error": "邮箱已存在"})
 			return
@@ -57,7 +55,6 @@ func LoginHandler(c *gin.Context) {
 
 	ip := c.ClientIP()
 	token, user, err := LoginUserByEmail(req.Email, req.Password, ip)
-	log.Printf("登录失败: %v\n", err) // ← 打印详细错误
 	if err != nil {
 		switch err {
 		case ErrUserNotFound, ErrInvalidPassword:

@@ -7,11 +7,15 @@ import (
 	"MaskLR-Go/internal/config"
 	"MaskLR-Go/internal/db"
 	"MaskLR-Go/internal/router"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	// 设置 Gin 为生产模式
+	gin.SetMode(gin.ReleaseMode)
 
-	// 打开 log 文件
+	// 打开日志文件
 	logFile, err := os.OpenFile("masklr.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 	if err != nil {
 		log.Fatalf("无法打开日志文件: %v", err)
@@ -32,8 +36,12 @@ func main() {
 		log.Fatalf("数据库连接失败: %v", err)
 	}
 
+	// 创建 Gin 引擎并重定向日志
+	r := gin.New()
+	r.Use(gin.LoggerWithWriter(logFile), gin.Recovery())
+
 	// 注册路由
-	r := router.SetupRouter()
+	router.SetupRouter(r)
 
 	// 启动 HTTP 服务
 	addr := ":" + config.Conf.Port
