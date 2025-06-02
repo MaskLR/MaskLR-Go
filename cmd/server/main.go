@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"MaskLR-Go/internal/config"
 	"MaskLR-Go/internal/db"
@@ -9,6 +10,18 @@ import (
 )
 
 func main() {
+
+	// 打开 log 文件
+	logFile, err := os.OpenFile("masklr.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		log.Fatalf("无法打开日志文件: %v", err)
+	}
+	defer logFile.Close()
+
+	// 设置标准日志输出到文件
+	log.SetOutput(logFile)
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
 	// 加载配置
 	if err := config.LoadConfig(); err != nil {
 		log.Fatalf("加载配置失败: %v", err)

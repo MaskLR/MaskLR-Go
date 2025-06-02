@@ -1,2 +1,20 @@
 # 忽略可执行文件和环境配置
+# Go build
+/bin/
+/build/
+*.exe
+*.out
+*.test
+
+# Vendor
+/vendor/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Env files
 .env
