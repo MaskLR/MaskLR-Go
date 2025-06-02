@@ -27,7 +27,7 @@ func LoadConfig() error {
 		JWTKey: getEnv("JWT_SECRET", "replace_with_strong_jwt_key"),
 
 		MySQL: MySQLConfig{
-			SocketDSN: getEnv("MYSQL_SOCKET_DSN", "admin:admin2025@unix(/data/data/com.termux/files/usr/var/run/mysqld.sock)/masklr?parseTime=true"),
+			SocketDSN: getEnv("MYSQL_SOCKET_DSN", "admin:admin2025@unix(/data/data/com.termux/files/usr/var/run/mysqld.sock)/mask_lr?parseTime=true"),
 			TCPHost:   getEnv("MYSQL_TCP_HOST", "192.168.1.5:3306"),
 			DBName:    getEnv("MYSQL_DB", "mask_lr"),
 			User:      getEnv("MYSQL_USER", "admin"),
