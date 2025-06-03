@@ -8,6 +8,7 @@ import (
 	"MaskLR-Go/internal/db"
 	"MaskLR-Go/internal/router"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -39,6 +40,15 @@ func main() {
 	// 创建 Gin 引擎并重定向日志
 	r := gin.New()
 	r.Use(gin.LoggerWithWriter(logFile), gin.Recovery())
+
+	// 配置 CORS，允许 masklr.github.io 访问
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"https://masklr.github.io"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 
 	// 注册路由
 	router.SetupRouter(r)
